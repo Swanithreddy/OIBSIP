@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <title>Temperature Converter. </title>
+
+<style>
+       *{
+       margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+       }
+
+
+body{
+       height: 100%;
+       width: 100%;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       background-color: aquamarine;
+
+}
+.main{
+    display: flex;
+    justify-content: center;
+    margin-top: 16%;
+    background-color: brown;
+    padding: 80px 80px;
+    
+}
+.main p{
+    font-size: 30px;
+}
+.main input{
+    padding: 5px;
+    font-weight: bolder;
+    
+}
+.main select{
+    padding: 5px;
+    font-weight: bolder;
+}
+.main span{
+    font-size: 20px;
+}
+
+
+
+</style>
+
+
+
+
+
+
+
+
+</head>
+<body>
+       
+ <div class="main">
+    <form id="tmpcalc" onsubmit="tmpcalc(); return false">
+    <p>Enter the temperature.</p><br>
+    <input type="number" name="tmp" id="tmp">
+    <select name="tmpd" id="tmpd">
+        <option value="cl">Celsius</option>
+        <option value="ft">Fahrenheit</option>
+    </select>
+    <br>
+    <br>
+    
+    <input type="submit" name="tmp">
+    <br>
+    <span id="resct"></span>
+
+</form>
+
+
+ </div>   
+
+<script>
+const tmpcalc=()=>{
+    const digtmp=document.getElementById('tmp').value;
+    const ts=document.getElementById('tmpd');
+    const vt=tmpd.options[ts.selectedIndex].value;
+
+    const clToft=(cl)=>{
+        let fahrenheit=Math.round((cl * 9/5) + 32);
+        return fahrenheit;
+    }
+
+    const ftTocl=(ft)=>{
+        let celsius=Math.round((ft - 32) * 5/9);
+        return celsius;
+    }
+
+
+    let res;
+    if(vt=='cl'){
+        res=clToft(digtmp);
+        document.getElementById('resct').innerHTML=`<br>${res} Fahrenheit`;
+
+    }
+    else{
+        res=ftTocl(digtmp);
+        document.getElementById('resct').innerHTML=`<br>${res} Celsius`;
+    }
+}
+
+
+
+</script>
+
+</body>
+</html>
